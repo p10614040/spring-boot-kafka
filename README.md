@@ -1,5 +1,5 @@
 # SpringBoot Kafka
-基于 SpringBoot 的 Kafka 程序
+基于 SpringBoot 的 Kafka 生成、消费程序
 * JDK：1.8+
 * SpringBoot：1.5.3
 * spring-kafka：1.0.6.RELEASE（与 Apache Kafka 版本相对应，否则无法访问）
