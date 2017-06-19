@@ -1,14 +1,12 @@
 # SpringBoot Kafka
-»ùÓÚ SpringBoot µÄ Kafka ³ÌÐò
-JDK£º1.8+
-SpringBoot£º1.5.3
-spring-kafka£º1.0.6.RELEASE£¨Óë Apache Kafka °æ±¾Ïà¶ÔÓ¦£¬·ñÔòÎÞ·¨·ÃÎÊ£©
-Apache Kafka£º2.9.2-0.8.1.1
+åŸºäºŽ SpringBoot çš„ Kafka ç¨‹åº
+* JDKï¼š1.8+
+* SpringBootï¼š1.5.3
+* spring-kafkaï¼š1.0.6.RELEASEï¼ˆä¸Ž Apache Kafka ç‰ˆæœ¬ç›¸å¯¹åº”ï¼Œå¦åˆ™æ— æ³•è®¿é—®ï¼‰
+* Apache Kafkaï¼š2.9.2-0.8.1.1
 
-## Éú²úÕß
-Ê¹ÓÃ future Òì²½·¢ËÍ¸æ¾¯ÏûÏ¢£¬ÏûÏ¢·¢ËÍÊ¹ÓÃ¶àÏß³Ì·ÀÖ¹ÏûÏ¢×èÈû¡£
+## ç”Ÿäº§è€…
+ä½¿ç”¨ future å¼‚æ­¥å‘é€å‘Šè­¦æ¶ˆæ¯ï¼Œæ¶ˆæ¯å‘é€ä½¿ç”¨å¤šçº¿ç¨‹é˜²æ­¢æ¶ˆæ¯é˜»å¡žã€‚
 
-## Ïû·ÑÕß
-Ê¹ÓÃ KafkaListener ¼àÌý Topic ÊµÊ±»ñÈ¡ÏûÏ¢£¬Demo ÖÐÖ»´òÓ¡ÏûÏ¢¡£
-
-## ¶þ´Î¿ª·¢
+## æ¶ˆè´¹è€…
+ä½¿ç”¨ KafkaListener ç›‘å¬ Topic å®žæ—¶èŽ·å–æ¶ˆæ¯ï¼ŒDemo ä¸­åªæ‰“å°æ¶ˆæ¯ã€‚
