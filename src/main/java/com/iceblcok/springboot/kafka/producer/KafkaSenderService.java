@@ -31,14 +31,14 @@ public class KafkaSenderService {
      * 多线程发送消息到 Kafka
      */
     public void sendMessage(String topic, String message) {
-        executor.execute(() -> SyncSendMessage(topic, message));
+        executor.execute(() -> asyncSendMessage(topic, message));
         LOGGER.debug("send message='{}' to topic='{}' ", message, topic); // 打印日志会影响发送效率
     }
 
     /**
      * 同步发送消息
      */
-    private void SyncSendMessage(String topic, String message) {
+    private void syncSendMessage(String topic, String message) {
         kafkaTemplate.send(topic, message);
     }
 
@@ -54,7 +54,7 @@ public class KafkaSenderService {
 
             @Override
             public void onSuccess(SendResult<String, String> result) {
-                LOGGER.info("SUCCESS: send message='{}' to topic='{}' with offset={}", message, topic, result.getRecordMetadata().offset());
+                LOGGER.debug("SUCCESS: send message='{}' to topic='{}' with offset={}", message, topic, result.getRecordMetadata().offset());
             }
 
             @Override
