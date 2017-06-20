@@ -28,13 +28,13 @@ public class SpringBootKafkaApplicationTests {
      * @throws IOException
      */
     @Test
-    public void sendKafka() throws IOException {
+    public void sendKafka() throws IOException, InterruptedException {
         // 发送消息数量
-        int num = 10000;
+        int num = 100000;
         // topic 与 KafkaReceiverListener 中 topics 相对应
         String topic = "iov-topic";
         for (int i = 0; i < num; i++) {
-            senderService.sendMessage(topic, LocalDateTime.now().toString());
+            senderService.sendMessage(topic, LocalDateTime.now().toString() + "_" + i);
         }
 
         // 阻塞，使消息可以被监听接收

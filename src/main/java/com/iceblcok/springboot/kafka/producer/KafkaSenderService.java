@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
 public class KafkaSenderService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaSenderService.class);
-    private ExecutorService executor = Executors.newFixedThreadPool(200);
+    private ExecutorService executor = Executors.newFixedThreadPool(10);
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
@@ -31,8 +31,15 @@ public class KafkaSenderService {
      * 多线程发送消息到 Kafka
      */
     public void sendMessage(String topic, String message) {
-        executor.execute(() -> asyncSendMessage(topic, message));
-        LOGGER.info("asynchronous send message='{}' to topic='{}' ", message, topic);
+        executor.execute(() -> SyncSendMessage(topic, message));
+        LOGGER.debug("send message='{}' to topic='{}' ", message, topic); // 打印日志会影响发送效率
+    }
+
+    /**
+     * 同步发送消息
+     */
+    private void SyncSendMessage(String topic, String message) {
+        kafkaTemplate.send(topic, message);
     }
 
     /**
