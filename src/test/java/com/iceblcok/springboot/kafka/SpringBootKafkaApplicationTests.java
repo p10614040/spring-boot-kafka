@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -34,7 +34,7 @@ public class SpringBootKafkaApplicationTests {
         // topic 与 KafkaReceiverListener 中 topics 相对应
         String topic = "iov-topic";
         for (int i = 0; i < num; i++) {
-            senderService.sendMessage(topic, LocalDateTime.now().toString() + "_" + i);
+            senderService.sendMessage(topic, new Date() + "_" + i);
         }
 
         // 阻塞，使消息可以被监听接收

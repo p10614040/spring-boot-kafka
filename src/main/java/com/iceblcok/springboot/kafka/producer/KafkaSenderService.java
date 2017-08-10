@@ -30,8 +30,13 @@ public class KafkaSenderService {
     /**
      * 多线程发送消息到 Kafka
      */
-    public void sendMessage(String topic, String message) {
-        executor.execute(() -> syncSendMessage(topic, message));
+    public void sendMessage(final String topic, final String message) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                KafkaSenderService.this.syncSendMessage(topic, message);
+            }
+        });
         LOGGER.debug("send message='{}' to topic='{}' ", message, topic); // 打印日志会影响发送效率
     }
 
@@ -45,7 +50,7 @@ public class KafkaSenderService {
     /**
      * 异步发送消息
      */
-    private void asyncSendMessage(String topic, String message) {
+    private void asyncSendMessage(final String topic, final String message) {
         // the KafkaTemplate provides asynchronous send methods returning a Future
         ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, message);
 
