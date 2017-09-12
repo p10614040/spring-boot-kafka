@@ -23,6 +23,7 @@ public class KafkaReceiverListener {
     private static final String ZTE_A_TOPIC = "ZTE-A";
     private static final String SI_U_TOPIC = "S1-U";
     private static final String SIMEE_TOPIC = "DETAIL-CDR-s1mme";
+    private static final String S6A_TOPIC = "S6a-topic";
 
     private static Map<String, Long> totalCountMap = new ConcurrentHashMap<>();
     private static Map<String, Long> currentCountMap = new ConcurrentHashMap<>();
@@ -32,14 +33,17 @@ public class KafkaReceiverListener {
         totalCountMap.put(ZTE_A_TOPIC, 0L);
         totalCountMap.put(SI_U_TOPIC, 0L);
         totalCountMap.put(SIMEE_TOPIC, 0L);
+        totalCountMap.put(S6A_TOPIC, 0L);
 
         currentCountMap.put(ZTE_A_TOPIC, 0L);
         currentCountMap.put(SI_U_TOPIC, 0L);
         currentCountMap.put(SIMEE_TOPIC, 0L);
+        currentCountMap.put(S6A_TOPIC, 0L);
 
         startTimeMap.put(ZTE_A_TOPIC, System.currentTimeMillis());
         startTimeMap.put(SI_U_TOPIC, System.currentTimeMillis());
         startTimeMap.put(SIMEE_TOPIC, System.currentTimeMillis());
+        startTimeMap.put(S6A_TOPIC, System.currentTimeMillis());
     }
 
     /**
@@ -75,6 +79,11 @@ public class KafkaReceiverListener {
     @KafkaListener(topics = SIMEE_TOPIC)
     public void processS1mmeMessage(String message) {
         logTip(SIMEE_TOPIC, message);
+    }
+
+    @KafkaListener(topics = S6A_TOPIC)
+    public void processS6aMessage(String message) {
+        logTip(S6A_TOPIC, message);
     }
 }
 
