@@ -31,7 +31,7 @@ public class KafkaSenderService {
      * 多线程发送消息到 Kafka
      */
     public void sendMessage(String topic, String message) {
-        executor.execute(() -> asyncSendMessage(topic, message));
+        executor.execute(() -> syncSendMessage(topic, message));
         LOGGER.debug("send message='{}' to topic='{}' ", message, topic); // 打印日志会影响发送效率
     }
 

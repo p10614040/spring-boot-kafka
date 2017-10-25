@@ -30,7 +30,7 @@ public class SpringBootKafkaApplicationTests {
     @Test
     public void sendKafka() throws IOException, InterruptedException {
         // 发送消息数量
-        int num = 100000;
+        int num = 10000000;
         // topic 与 KafkaReceiverListener 中 topics 相对应
         String topic = "iov-topic";
         for (int i = 0; i < num; i++) {
