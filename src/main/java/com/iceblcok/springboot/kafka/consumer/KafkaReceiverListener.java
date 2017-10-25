@@ -1,3 +1,4 @@
+/*
 package com.iceblcok.springboot.kafka.consumer;
 
 import org.slf4j.Logger;
@@ -9,12 +10,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+*/
 /**
  * Kafka 消息消费监听
  *
  * @author yan.liang@ustcinfo.com
  * @date 2017/6/9
- */
+ *//*
+
 @Component
 public class KafkaReceiverListener {
 
@@ -46,9 +49,11 @@ public class KafkaReceiverListener {
         startTimeMap.put(S6A_TOPIC, System.currentTimeMillis());
     }
 
-    /**
+    */
+/**
      * 日志提示
-     */
+     *//*
+
     private void logTip(String topicName, String message) {
         long countTotal = totalCountMap.get(topicName);
         totalCountMap.put(topicName, ++countTotal);
@@ -145,3 +150,4 @@ class logTip {
                 '}';
     }
 }
+*/
