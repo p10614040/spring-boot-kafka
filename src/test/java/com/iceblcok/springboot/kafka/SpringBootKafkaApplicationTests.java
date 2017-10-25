@@ -32,7 +32,7 @@ public class SpringBootKafkaApplicationTests {
         // 发送消息数量
         int num = 10000000;
         // topic 与 KafkaReceiverListener 中 topics 相对应
-        String topic = "iov-topic";
+        String topic = "test";
         for (int i = 0; i < num; i++) {
             senderService.sendMessage(topic, LocalDateTime.now().toString() + "_" + i);
         }
